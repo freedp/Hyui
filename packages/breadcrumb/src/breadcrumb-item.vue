@@ -3,18 +3,20 @@
 @import './breadcrumb-item.scss';
 </style>
 <template>
-	<span class="breadcrumb-item__panel">
+	<span :class="[`${CLASS_PREFIX}-item__panel`]">
 		<router-link
-			class="breadcrumb-item__inner"
-			:class="{ 'is-link': !!this.to }"
+			:class="[`${CLASS_PREFIX}-item__inner`, { 'is-link': !!this.to }]"
 			:tag="linkTag"
 			:to="to"
-			><slot></slot
-		></router-link>
-		<span class="breadcrumb-item__separator">{{ separator }}</span>
+			><slot></slot>
+		</router-link>
+		<span :class="[`${CLASS_PREFIX}-item__separator`]">
+			{{ separator }}
+		</span>
 	</span>
 </template>
 <script>
+const CLASS_PREFIX = 'hy-breadcrumb';
 export default {
 	name: 'BreadcrumbItem',
 	props: {
@@ -25,6 +27,7 @@ export default {
 	},
 	data() {
 		return {
+			CLASS_PREFIX,
 			separatorShow: true
 		};
 	},

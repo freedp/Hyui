@@ -6,6 +6,8 @@
 
 import './icon.scss';
 
+const CLASS_PREFIX = 'hy-icon';
+
 export default {
 	name: 'Icon',
 	props: {
@@ -16,7 +18,7 @@ export default {
 	},
 	render(h) {
 		return h('span', {
-			class: [`hy-icon-${this.type}`]
+			class: [`${CLASS_PREFIX}-${this.type}`]
 		});
 	}
 };

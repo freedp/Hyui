@@ -1,6 +1,6 @@
-.breadcrumb-item__panel {
+.hy-breadcrumb-item__panel {
 	float: left;
-	.breadcrumb-item__inner {
+	.hy-breadcrumb-item__inner {
 		float: left;
 		color: #606266;
 		&.is-link {
@@ -13,13 +13,13 @@
 			}
 		}
 	}
-	.breadcrumb-item__separator {
+	.hy-breadcrumb-item__separator {
 		float: left;
 		margin: 0 9px;
 		font-weight: 700;
 		color: #c0c4cc;
 	}
-	&:last-child .breadcrumb-item__separator {
+	&:last-child .hy-breadcrumb-item__separator {
 		display: none;
 	}
 }

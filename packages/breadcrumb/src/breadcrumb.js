@@ -5,6 +5,8 @@
  */
 import './breadcrumb.scss';
 
+const CLASS_PREFIX = 'hy-breadcrumb';
+
 export default {
 	name: 'Breadcrumb',
 	props: {
@@ -26,7 +28,7 @@ export default {
 		return h(
 			this.tag,
 			{
-				class: ['breadcrumb-panel'],
+				class: CLASS_PREFIX,
 				attrs: {
 					'aria-label': 'breadcrumb',
 					rule: 'navigation'

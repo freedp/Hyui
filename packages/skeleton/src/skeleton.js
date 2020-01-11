@@ -13,6 +13,8 @@ import {
 } from '@/utils/utils';
 import { warn } from '@/utils/debug';
 
+const CLASS_PREFIX = 'hy-skeleton';
+
 // 默认配置
 const _DEFALUT = {
 	titleWidth: '38%', //
@@ -121,14 +123,14 @@ export default {
 					h(
 						'div',
 						{
-							class: 'hy-skeleton-header'
+							class: `${CLASS_PREFIX}-header`
 						},
 						[
 							h('span', {
 								class: [
-									'hy-skeleton-avatar',
-									`hy-skeleton-avatar--${avatarProp.size}`,
-									`hy-skeleton-avatar--${avatarProp.shape}`
+									`${CLASS_PREFIX}-avatar`,
+									`${CLASS_PREFIX}-avatar--${avatarProp.size}`,
+									`${CLASS_PREFIX}-avatar--${avatarProp.shape}`
 								]
 							})
 						]
@@ -144,7 +146,7 @@ export default {
 			if (title) {
 				list.push(
 					h('h3', {
-						class: 'hy-skeleton-title',
+						class: `${CLASS_PREFIX}-title`,
 						style: {
 							width: titleProp
 						}
@@ -176,14 +178,14 @@ export default {
 		const bodyTpl = h(
 			'div',
 			{
-				class: 'hy-skeleton-content'
+				class: `${CLASS_PREFIX}-content`
 			},
 			[
 				this.renderTitle(),
 				h(
 					'ul',
 					{
-						class: 'hy-skeleton-graph'
+						class: `${CLASS_PREFIX}-graph`
 					},
 					this.renderRows()
 				)
@@ -195,10 +197,10 @@ export default {
 			'div',
 			{
 				class: [
-					'hy-skeleton',
+					CLASS_PREFIX,
 					{
-						'hy-skeleton-active': active,
-						'hy-skeleton-has-avatar': avatar
+						[`${CLASS_PREFIX}-active`]: active,
+						[`${CLASS_PREFIX}-has-avatar`]: avatar
 					}
 				],
 				attrs: {

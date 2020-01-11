@@ -522,13 +522,13 @@
 		background-position: 0 50%;
 	}
 }
-.breadcrumb-panel {
+.hy-breadcrumb {
 	font-size: 14px;
 	line-height: 1;
 	background-color: transparent;
 	zoom: 1;
 }
-.breadcrumb-panel:after {
+.hy-breadcrumb:after {
 	content: '';
 	display: block;
 	clear: both;
