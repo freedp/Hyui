@@ -19,7 +19,7 @@
 		font-weight: 700;
 		color: #c0c4cc;
 	}
-	&:last-child .hy-breadcrumb-item__separator {
+	&:last-child > .hy-breadcrumb-item__separator {
 		display: none;
 	}
 }
