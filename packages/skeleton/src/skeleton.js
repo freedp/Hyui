@@ -170,14 +170,7 @@ export default {
 		}
 	},
 	render(h) {
-		const {
-			active,
-			avatar,
-			loading,
-			renderRows,
-			renderAvatar,
-			renderTitle
-		} = this;
+		const { active, avatar, loading } = this;
 
 		// body
 		const bodyTpl = h(
@@ -186,13 +179,13 @@ export default {
 				class: 'hy-skeleton-content'
 			},
 			[
-				renderTitle(),
+				this.renderTitle(),
 				h(
 					'ul',
 					{
 						class: 'hy-skeleton-graph'
 					},
-					renderRows()
+					this.renderRows()
 				)
 			]
 		);
@@ -213,7 +206,7 @@ export default {
 					rule: 'navigation'
 				}
 			},
-			[renderAvatar(), bodyTpl]
+			[this.renderAvatar(), bodyTpl]
 		);
 
 		try {
