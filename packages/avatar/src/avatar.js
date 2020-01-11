@@ -10,7 +10,7 @@ import { oneOf, _typeof, maybeAddPx } from '@/utils/utils';
 
 const CLASS_PREFIX = 'hy-avatar';
 
-const SIZE = ['large', 'small', 'default'];
+const SIZE = ['large', 'medium', 'small'];
 
 const SHAPE = ['circle', 'square'];
 
@@ -26,7 +26,7 @@ export default {
 		},
 		size: {
 			type: [String, Number],
-			default: 'default',
+			default: 'large',
 			validator(val) {
 				return oneOf(val, SIZE) || _typeof(val) === 'number';
 			}
@@ -67,11 +67,11 @@ export default {
 			if (shape) {
 				list.push(`${CLASS_PREFIX}--${shape}`);
 			}
-			if (icon) {
-				list.push(`${CLASS_PREFIX}--icon`);
-			}
 			if (src) {
 				list.push(`${CLASS_PREFIX}--image`);
+			}
+			if (icon) {
+				list.push(`${CLASS_PREFIX}--icon`);
 			}
 			return list;
 		},
@@ -98,13 +98,6 @@ export default {
 		renderAvatar() {
 			const h = this.$createElement;
 			const { icon, src, alt, srcSet, isImgExist, handlerError } = this;
-			if (icon) {
-				return h('icon', {
-					props: {
-						type: icon
-					}
-				});
-			}
 			if (isImgExist && src) {
 				return h('img', {
 					on: {
@@ -114,6 +107,13 @@ export default {
 						src,
 						alt,
 						srcSet
+					}
+				});
+			}
+			if (icon) {
+				return h('icon', {
+					props: {
+						type: icon
 					}
 				});
 			}

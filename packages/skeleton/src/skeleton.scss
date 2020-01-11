@@ -1,49 +1,28 @@
 .hy-skeleton {
 	display: table;
-    width: 100%;
-    .hy-skeleton-header {
-        display: table-cell;
-        padding-right: 16px;
-        vertical-align: top;
-        .hy-skeleton-avatar {
-            display: inline-block;
-            vertical-align: top;
-            background: #f2f2f2;
-            width: 36px;
-            height: 36px;
-            line-height: 36px;
-            &.hy-skeleton-avatar--circle {
-                border-radius: 50%;
-            }
-            &.hy-skeleton-avatar--square {
-                border-radius: none;
-            }
-            &.hy-skeleton-avatar--large {
-                width: 45px;
-                height: 45px;
-                line-height: 45px;
-            }
-            &.hy-skeleton-avatar--small {
-                width: 36px;
-                height: 36px;
-                line-height: 36px;
-            }
-        }
-    }
+	width: 100%;
+	.hy-skeleton-header {
+		display: table-cell;
+		padding-right: 16px;
+		vertical-align: top;
+		.hy-skeleton-avatar {
+			background-color: #f2f2f2;
+		}
+	}
 	.hy-skeleton-content {
 		display: table-cell;
 		vertical-align: top;
 		width: 100%;
 		.hy-skeleton-title {
-            margin-top: 16px;
+			margin-top: 16px;
 			height: 16px;
 			width: 100%;
 			background: #f2f2f2;
 		}
 		.hy-skeleton-graph {
-            margin: 0;
-            padding: 0;
-            margin-top: 24px;
+			margin: 0;
+			padding: 0;
+			margin-top: 24px;
 			list-style: none;
 			li {
 				height: 16px;
@@ -55,8 +34,8 @@
 		}
 	}
 	&.hy-skeleton-active {
-        .hy-skeleton-avatar,
-        .hy-skeleton-title,
+		.hy-skeleton-avatar,
+		.hy-skeleton-title,
 		.hy-skeleton-graph > li {
 			background: linear-gradient(
 				90deg,

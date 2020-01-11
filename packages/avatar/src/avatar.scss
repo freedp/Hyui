@@ -1,0 +1,42 @@
+.hy-avatar {
+	display: inline-block;
+	box-sizing: border-box;
+	text-align: center;
+	overflow: hidden;
+	color: #fff;
+	background-color: #ccc;
+	width: 45px;
+	height: 45px;
+	line-height: 45px;
+	font-size: 14px;
+	&.hy-avatar--icon {
+		font-size: 18px;
+	}
+	&.hy-avatar--image img {
+		display: inline-block;
+		width: 100%;
+		height: 100%;
+		vertical-align: middle;
+	}
+	&.hy-avatar--circle {
+		border-radius: 50%;
+	}
+	&.hy-avatar--square {
+		border-radius: none;
+	}
+	&.hy-avatar--large {
+		width: 55px;
+		height: 55px;
+		line-height: 45px;
+	}
+	&.hy-avatar--medium {
+		width: 45px;
+		height: 45px;
+		line-height: 45px;
+	}
+	&.hy-avatar--small {
+		width: 36px;
+		height: 36px;
+		line-height: 36px;
+	}
+}

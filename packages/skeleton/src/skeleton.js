@@ -30,7 +30,7 @@ const _DEFALUT = {
 
 const SHAPE = ['circle', 'square'];
 
-const SIZE = ['large', 'small'];
+const SIZE = ['large', 'medium', 'small'];
 
 export default {
 	name: 'Skeleton',
@@ -126,12 +126,12 @@ export default {
 							class: `${CLASS_PREFIX}-header`
 						},
 						[
-							h('span', {
-								class: [
-									`${CLASS_PREFIX}-avatar`,
-									`${CLASS_PREFIX}-avatar--${avatarProp.size}`,
-									`${CLASS_PREFIX}-avatar--${avatarProp.shape}`
-								]
+							h('avatar', {
+								props: {
+									size: avatarProp.size,
+									shape: avatarProp.shape
+								},
+								class: `${CLASS_PREFIX}-avatar`
 							})
 						]
 					)
