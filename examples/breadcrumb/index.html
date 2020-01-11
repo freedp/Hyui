@@ -13,13 +13,15 @@
 
 	<body>
 		<div id="app">
-			<breadcrumb>
+			<hy-breadcrumb>
 				<div>
-					<breadcrumb-item v-for="(item, index) in list" :key="index"
-						>{{ item }}</breadcrumb-item
+					<hy-breadcrumb-item
+						v-for="(item, index) in list"
+						:key="index"
+						>{{ item }}</hy-breadcrumb-item
 					>
 				</div>
-			</breadcrumb>
+			</hy-breadcrumb>
 		</div>
 	</body>
 	<!-- import Vue before Element -->

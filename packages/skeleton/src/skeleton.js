@@ -33,7 +33,7 @@ const SHAPE = ['circle', 'square'];
 const SIZE = ['large', 'medium', 'small'];
 
 export default {
-	name: 'Skeleton',
+	name: 'hySkeleton',
 	props: {
 		loading: {
 			type: Boolean,
