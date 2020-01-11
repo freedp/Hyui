@@ -7,14 +7,10 @@ import './button.scss';
 import { oneOf, _typeof, maybeAddPx } from '@/utils/utils';
 
 const CLASS_PREFIX = 'hy-button';
-
-const TYPE_LIST = ['primary', 'success', 'warning', 'danger', 'info', 'text', ''];
-
-const NATIVE_TYPE_LIST = ['button', 'submit', 'reset'];
-
 const SIZE_LIST = ['large', 'medium', 'small'];
-
 const SHAPE_LIST = ['normal', 'round', 'circle'];
+const NATIVE_TYPE_LIST = ['button', 'submit', 'reset'];
+const TYPE_LIST = ['primary', 'success', 'warning', 'danger', 'info', 'text', ''];
 
 export default {
 	name: 'hyButton',

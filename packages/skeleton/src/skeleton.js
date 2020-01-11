@@ -4,8 +4,8 @@
  * 描述：骨架屏
  */
 import './skeleton.scss';
-import { _typeof, isArray, isPrimitive, maybeAddPx, oneOf } from '@/utils/utils';
 import { warn } from '@/utils/debug';
+import { _typeof, isArray, isPrimitive, maybeAddPx, oneOf } from '@/utils/utils';
 
 const CLASS_PREFIX = 'hy-skeleton';
 
