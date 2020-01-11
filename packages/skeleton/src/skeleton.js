@@ -60,22 +60,23 @@ export default {
 	},
 	computed: {
 		rowProp() {
-			if (_typeof(this.graph) === 'boolean') {
-				return this.graph ? ['', '', _DEFALUT.graph.width] : [];
+			const { graph } = this;
+			if (_typeof(graph) === 'boolean') {
+				return graph ? ['', '', _DEFALUT.graph.width] : [];
 			}
-			if (_typeof(this.graph) === 'object') {
+			if (_typeof(graph) === 'object') {
 				const rows =
-					'rows' in this.graph &&
-					_typeof(this.graph.rows) === 'number' &&
-					this.graph.rows > 0
-						? this.graph.rows
+					'rows' in graph &&
+					_typeof(graph.rows) === 'number' &&
+					graph.rows > 0
+						? graph.rows
 						: _DEFALUT.graph.rows;
 				let width = [];
-				if (isPrimitive(this.graph.width)) {
-					width = [this.graph.width || _DEFALUT.graph.width];
+				if (isPrimitive(graph.width)) {
+					width = [graph.width || _DEFALUT.graph.width];
 				} else {
-					width = isArray(this.graph.width)
-						? this.graph.width
+					width = isArray(graph.width)
+						? graph.width
 						: [_DEFALUT.graph.width];
 				}
 				width.reverse();
@@ -84,17 +85,18 @@ export default {
 			}
 		},
 		avatarProp() {
-			if (_typeof(this.avatar) === 'boolean') {
+			const { avatar } = this;
+			if (_typeof(avatar) === 'boolean') {
 				return _DEFALUT.avatar;
 			}
-			if (_typeof(this.avatar) === 'object') {
+			if (_typeof(avatar) === 'object') {
 				const size =
-					'size' in this.avatar && oneOf(this.avatar.size, SIZE)
-						? this.avatar.size
+					'size' in avatar && oneOf(avatar.size, SIZE)
+						? avatar.size
 						: _DEFALUT.avatar.size;
 				const shape =
-					'shape' in this.avatar && oneOf(this.avatar.shape, SHAPE)
-						? this.avatar.shape
+					'shape' in avatar && oneOf(avatar.shape, SHAPE)
+						? avatar.shape
 						: _DEFALUT.avatar.shape;
 				return {
 					size,
@@ -108,52 +110,74 @@ export default {
 				: maybeAddPx(this.title || 'auto');
 		}
 	},
-	render(h) {
+	methods: {
 		// 头像
-		const avatars = [];
-		if (this.avatar) {
-			avatars.push(
-				h(
-					'div',
-					{
-						class: 'hy-skeleton-header'
-					},
-					[
-						h('span', {
-							class: [
-								'hy-skeleton-avatar',
-								`hy-skeleton-avatar--${this.avatarProp.size}`,
-								`hy-skeleton-avatar--${this.avatarProp.shape}`
-							]
-						})
-					]
-				)
-			);
+		renderAvatar() {
+			const list = [];
+			const h = this.$createElement;
+			const { avatar, avatarProp } = this;
+			if (avatar) {
+				list.push(
+					h(
+						'div',
+						{
+							class: 'hy-skeleton-header'
+						},
+						[
+							h('span', {
+								class: [
+									'hy-skeleton-avatar',
+									`hy-skeleton-avatar--${avatarProp.size}`,
+									`hy-skeleton-avatar--${avatarProp.shape}`
+								]
+							})
+						]
+					)
+				);
+			}
+			return list;
+		},
+		renderTitle() {
+			const list = [];
+			const h = this.$createElement;
+			const { title, titleProp } = this;
+			if (title) {
+				list.push(
+					h('h3', {
+						class: 'hy-skeleton-title',
+						style: {
+							width: titleProp
+						}
+					})
+				);
+			}
+			return list;
+		},
+		renderRows() {
+			const list = [];
+			const { rowProp } = this;
+			const h = this.$createElement;
+			for (let i = 0; i < rowProp.length; i++) {
+				list.push(
+					h('li', {
+						style: {
+							width: maybeAddPx(rowProp[i] || 'auto')
+						}
+					})
+				);
+			}
+			return list;
 		}
-
-		// title
-		const titles = [];
-		if (this.title) {
-			titles.push(
-				h('h3', {
-					class: 'hy-skeleton-title',
-					style: {
-						width: this.titleProp
-					}
-				})
-			);
-		}
-		// graph
-		const rows = [];
-		for (let i = 0; i < this.rowProp.length; i++) {
-			rows.push(
-				h('li', {
-					style: {
-						width: maybeAddPx(this.rowProp[i] || 'auto')
-					}
-				})
-			);
-		}
+	},
+	render(h) {
+		const {
+			active,
+			avatar,
+			loading,
+			renderRows,
+			renderAvatar,
+			renderTitle
+		} = this;
 
 		// body
 		const bodyTpl = h(
@@ -162,13 +186,13 @@ export default {
 				class: 'hy-skeleton-content'
 			},
 			[
-				titles,
+				renderTitle(),
 				h(
 					'ul',
 					{
 						class: 'hy-skeleton-graph'
 					},
-					rows
+					renderRows()
 				)
 			]
 		);
@@ -180,8 +204,8 @@ export default {
 				class: [
 					'hy-skeleton',
 					{
-						'hy-skeleton-active': this.active,
-						'hy-skeleton-has-avatar': this.avatar
+						'hy-skeleton-active': active,
+						'hy-skeleton-has-avatar': avatar
 					}
 				],
 				attrs: {
@@ -189,11 +213,11 @@ export default {
 					rule: 'navigation'
 				}
 			},
-			[avatars, bodyTpl]
+			[renderAvatar(), bodyTpl]
 		);
 
 		try {
-			return this.loading ? defaultTpl : h('span', this.$slots.default);
+			return loading ? defaultTpl : h('span', this.$slots.default);
 		} catch (e) {
 			warn('component <skeleton> must contain elements');
 			return null;
