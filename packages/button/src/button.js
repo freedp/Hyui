@@ -7,14 +7,22 @@ import './button.scss';
 import { oneOf, _typeof, maybeAddPx } from '@/utils/utils';
 
 const CLASS_PREFIX = 'hy-button';
-const SIZE_LIST = ['large', 'medium', 'small'];
-const SHAPE_LIST = ['normal', 'round', 'circle'];
-const NATIVE_TYPE_LIST = ['button', 'submit', 'reset'];
-const TYPE_LIST = ['primary', 'success', 'warning', 'danger', 'info', 'text', ''];
+
+const _DEFAULT = {
+	delay: 200, // ms 毫秒
+	size: ['large', 'medium', 'small'],
+	shape: ['normal', 'round', 'circle'],
+	nativeType: ['button', 'submit', 'reset'],
+	type: ['primary', 'success', 'warning', 'danger', 'info', 'text', '']
+};
 
 export default {
 	name: 'hyButton',
 	props: {
+		loading: {
+			type: [Boolean, Object],
+			default: false
+		},
 		disabled: {
 			type: Boolean,
 			default: false
@@ -27,28 +35,28 @@ export default {
 			type: String,
 			default: 'large',
 			validator(val) {
-				return oneOf(val, SIZE_LIST);
+				return oneOf(val, _DEFAULT.size);
 			}
 		},
 		shape: {
 			type: String,
 			default: 'normal',
 			validator(val) {
-				return oneOf(val, SHAPE_LIST);
+				return oneOf(val, _DEFAULT.shape);
 			}
 		},
 		type: {
 			type: String,
 			default: '',
 			validator(val) {
-				return oneOf(val, TYPE_LIST);
+				return oneOf(val, _DEFAULT.type);
 			}
 		},
 		nativeType: {
 			type: String,
 			default: 'button',
 			validator(val) {
-				return oneOf(val, NATIVE_TYPE_LIST);
+				return oneOf(val, _DEFAULT.nativeType);
 			}
 		}
 	},

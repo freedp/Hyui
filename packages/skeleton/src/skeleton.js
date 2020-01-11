@@ -19,12 +19,10 @@ const _DEFALUT = {
 	avatar: {
 		size: 'small', //  large / medium / small
 		shape: 'circle' // 'circle', 'square'
-	}
+	},
+	shape: ['circle', 'square'],
+	size: ['large', 'medium', 'small']
 };
-
-const SHAPE_LIST = ['circle', 'square'];
-
-const SIZE_LIST = ['large', 'medium', 'small'];
 
 export default {
 	name: 'hySkeleton',
@@ -82,9 +80,9 @@ export default {
 				return _DEFALUT.avatar;
 			}
 			if (_typeof(avatar) === 'object') {
-				const size = 'size' in avatar && oneOf(avatar.size, SIZE_LIST) ? avatar.size : _DEFALUT.avatar.size;
+				const size = 'size' in avatar && oneOf(avatar.size, _DEFALUT.size) ? avatar.size : _DEFALUT.avatar.size;
 				const shape =
-					'shape' in avatar && oneOf(avatar.shape, SHAPE_LIST) ? avatar.shape : _DEFALUT.avatar.shape;
+					'shape' in avatar && oneOf(avatar.shape, _DEFALUT.shape) ? avatar.shape : _DEFALUT.avatar.shape;
 				return {
 					size,
 					shape

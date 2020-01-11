@@ -10,9 +10,10 @@ import { oneOf, _typeof, maybeAddPx } from '@/utils/utils';
 
 const CLASS_PREFIX = 'hy-avatar';
 
-const SIZE_LIST = ['large', 'medium', 'small'];
-
-const SHAPE_LIST = ['circle', 'square'];
+const _DEFAULT = {
+	shape: ['circle', 'square'],
+	size: ['large', 'medium', 'small']
+};
 
 export default {
 	name: 'hyAvatar',
@@ -21,14 +22,14 @@ export default {
 			type: String,
 			default: 'circle',
 			validator(val) {
-				return oneOf(val, SHAPE_LIST);
+				return oneOf(val, _DEFAULT.shape);
 			}
 		},
 		size: {
 			type: [String, Number],
 			default: 'large',
 			validator(val) {
-				return oneOf(val, SIZE_LIST) || _typeof(val) === 'number';
+				return oneOf(val, _DEFAULT.size) || _typeof(val) === 'number';
 			}
 		},
 		icon: {
