@@ -17,7 +17,7 @@ export default {
 		}
 	},
 	render(h) {
-		return h('span', {
+		return h('i', {
 			class: [`${CLASS_PREFIX}-${this.type}`]
 		});
 	}

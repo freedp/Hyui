@@ -60,13 +60,63 @@ export default {
 			}
 		}
 	},
-	render(h) {
-		return h('button', {
-			class: CLASS_PREFIX,
-			attrs: {
-				'aria-label': 'button',
-				rule: 'button'
+	computed: {
+		classes() {
+			const list = [CLASS_PREFIX];
+			const { size, shape, type, disabled } = this;
+			list.push(`${CLASS_PREFIX}--${type || 'defulat'}`);
+			if (size) {
+				list.push(`${CLASS_PREFIX}--${size}`);
 			}
-		});
+			if (shape) {
+				list.push(`${CLASS_PREFIX}--${shape}`);
+			}
+			if (disabled) {
+				list.push(`${CLASS_PREFIX}--disabled`);
+			}
+			return list;
+		}
+	},
+	methods: {
+		handlerClick(e) {
+			if (this.disabled) return;
+			this.$emit('click', e);
+		},
+		renderBody() {
+			const list = [];
+			const h = this.$createElement;
+			const { loading, icon } = this;
+			if (loading || icon) {
+				list.push(
+					h('hy-icon', {
+						props: {
+							type: icon && !loading ? icon : 'refresh'
+						}
+					})
+				);
+			}
+			if (this.$slots.default) {
+				list.push(h('span', this.$slots.default));
+			}
+			return list;
+		}
+	},
+	render(h) {
+		const { classes, nativeType } = this;
+		return h(
+			'button',
+			{
+				class: classes,
+				attrs: {
+					'aria-label': 'button',
+					rule: 'button',
+					type: nativeType
+				},
+				on: {
+					click: this.handlerClick
+				}
+			},
+			this.renderBody()
+		);
 	}
 };

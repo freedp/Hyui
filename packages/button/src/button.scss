@@ -1,0 +1,81 @@
+.hy-button {
+	display: inline-block;
+	line-height: 1;
+	white-space: nowrap;
+	cursor: pointer;
+	background: #fff;
+	border: 1px solid #dcdfe6;
+	color: #606266;
+	-webkit-appearance: none;
+	text-align: center;
+	box-sizing: border-box;
+	outline: none;
+	margin: 0;
+	transition: 0.1s;
+	font-weight: 500;
+	-moz-user-select: none;
+	-webkit-user-select: none;
+	-ms-user-select: none;
+	padding: 12px 20px;
+	font-size: 14px;
+	border-radius: 4px;
+	&.hy-button--primary {
+		color: #fff;
+		background-color: #409eff;
+		border-color: #409eff;
+	}
+	&.hy-button--success {
+		color: #fff;
+		background-color: #67c23a;
+		border-color: #67c23a;
+	}
+	&.hy-button--info {
+		color: #fff;
+		background-color: #909399;
+		border-color: #909399;
+	}
+	&.hy-button--warning {
+		color: #fff;
+		background-color: #e6a23c;
+		border-color: #e6a23c;
+	}
+	&.hy-button--danger {
+		color: #fff;
+		background-color: #f56c6c;
+		border-color: #f56c6c;
+	}
+	&.hy-button--text {
+		border-color: transparent;
+		color: #409eff;
+		background: transparent;
+		padding-left: 0;
+		padding-right: 0;
+	}
+	&.hy-button--round {
+		border-radius: 20px;
+		padding: 12px 23px;
+	}
+	&.hy-button--circle {
+		border-radius: 50%;
+		padding: 12px;
+	}
+	&.hy-button--disabled,
+	&.hy-button--disabled:focus,
+	&.hy-button--disabled:hover {
+		opacity: 0.6;
+		cursor: not-allowed;
+		background-image: none;
+	}
+	&.hy-button--text.hy-button--disabled,
+	&.hy-button--text.hy-button--disabled:focus,
+	&.hy-button--text.hy-button--disabled:hover,
+	&.hy-button--text:active {
+		border-color: transparent;
+	}
+	&.hy-button--disabled.hy-button--text {
+		background-color: transparent;
+	}
+	[class*='hy-icon-'] + span {
+		margin-left: 5px;
+	}
+}
