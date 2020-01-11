@@ -8,7 +8,7 @@ import './breadcrumb-item.scss';
 const CLASS_PREFIX = 'hy-breadcrumb';
 
 export default {
-	name: 'BreadcrumbItem',
+	name: 'hyBreadcrumbItem',
 	props: {
 		to: {
 			type: [Object, String],
@@ -17,14 +17,13 @@ export default {
 	},
 	data() {
 		return {
-			CLASS_PREFIX,
 			separatorShow: true
 		};
 	},
-	inject: ['Breadcrumb'],
+	inject: ['hyBreadcrumb'],
 	computed: {
 		separator() {
-			return this.Breadcrumb.separator;
+			return this.hyBreadcrumb.separator;
 		}
 	},
 	methods: {

@@ -9,7 +9,7 @@ import './icon.scss';
 const CLASS_PREFIX = 'hy-icon';
 
 export default {
-	name: 'Icon',
+	name: 'hyIcon',
 	props: {
 		type: {
 			type: String,

@@ -126,7 +126,7 @@ export default {
 							class: `${CLASS_PREFIX}-header`
 						},
 						[
-							h('avatar', {
+							h('hy-avatar', {
 								props: {
 									size: avatarProp.size,
 									shape: avatarProp.shape

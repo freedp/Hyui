@@ -8,7 +8,7 @@ import './breadcrumb.scss';
 const CLASS_PREFIX = 'hy-breadcrumb';
 
 export default {
-	name: 'Breadcrumb',
+	name: 'hyBreadcrumb',
 	props: {
 		tag: {
 			type: String,
@@ -21,7 +21,7 @@ export default {
 	},
 	provide() {
 		return {
-			Breadcrumb: this
+			hyBreadcrumb: this
 		};
 	},
 	render(h) {

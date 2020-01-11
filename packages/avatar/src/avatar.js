@@ -15,7 +15,7 @@ const SIZE = ['large', 'medium', 'small'];
 const SHAPE = ['circle', 'square'];
 
 export default {
-	name: 'Avatar',
+	name: 'hyAvatar',
 	props: {
 		shape: {
 			type: String,
@@ -111,7 +111,7 @@ export default {
 				});
 			}
 			if (icon) {
-				return h('icon', {
+				return h('hy-icon', {
 					props: {
 						type: icon
 					}
