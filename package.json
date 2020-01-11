@@ -10,8 +10,8 @@
 	],
 	"scripts": {
 		"bootstrap": "yarn || npm i",
-		"lint": "eslint --ext .js,.vue src package test",
-		"lint:fix": "eslint --fix --ext .js,.vue src package test",
+		"lint": "eslint --ext .js,.vue src packages test",
+		"lint:fix": "eslint --fix --ext .js,.vue src packages test",
 		"build": "cross-env NODE_ENV=production rollup -c build/rollup.prod.js",
 		"dev": "rollup -c build/rollup.dev.js --watch",
 		"lint-staged": "pretty-quick --staged",

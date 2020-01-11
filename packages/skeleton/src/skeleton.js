@@ -4,13 +4,7 @@
  * 描述：骨架屏
  */
 import './skeleton.scss';
-import {
-	_typeof,
-	isArray,
-	isPrimitive,
-	maybeAddPx,
-	oneOf
-} from '@/utils/utils';
+import { _typeof, isArray, isPrimitive, maybeAddPx, oneOf } from '@/utils/utils';
 import { warn } from '@/utils/debug';
 
 const CLASS_PREFIX = 'hy-skeleton';
@@ -28,9 +22,9 @@ const _DEFALUT = {
 	}
 };
 
-const SHAPE = ['circle', 'square'];
+const SHAPE_LIST = ['circle', 'square'];
 
-const SIZE = ['large', 'medium', 'small'];
+const SIZE_LIST = ['large', 'medium', 'small'];
 
 export default {
 	name: 'hySkeleton',
@@ -68,18 +62,14 @@ export default {
 			}
 			if (_typeof(graph) === 'object') {
 				const rows =
-					'rows' in graph &&
-					_typeof(graph.rows) === 'number' &&
-					graph.rows > 0
+					'rows' in graph && _typeof(graph.rows) === 'number' && graph.rows > 0
 						? graph.rows
 						: _DEFALUT.graph.rows;
 				let width = [];
 				if (isPrimitive(graph.width)) {
 					width = [graph.width || _DEFALUT.graph.width];
 				} else {
-					width = isArray(graph.width)
-						? graph.width
-						: [_DEFALUT.graph.width];
+					width = isArray(graph.width) ? graph.width : [_DEFALUT.graph.width];
 				}
 				width.reverse();
 				width.length = rows;
@@ -92,14 +82,9 @@ export default {
 				return _DEFALUT.avatar;
 			}
 			if (_typeof(avatar) === 'object') {
-				const size =
-					'size' in avatar && oneOf(avatar.size, SIZE)
-						? avatar.size
-						: _DEFALUT.avatar.size;
+				const size = 'size' in avatar && oneOf(avatar.size, SIZE_LIST) ? avatar.size : _DEFALUT.avatar.size;
 				const shape =
-					'shape' in avatar && oneOf(avatar.shape, SHAPE)
-						? avatar.shape
-						: _DEFALUT.avatar.shape;
+					'shape' in avatar && oneOf(avatar.shape, SHAPE_LIST) ? avatar.shape : _DEFALUT.avatar.shape;
 				return {
 					size,
 					shape
@@ -107,9 +92,7 @@ export default {
 			}
 		},
 		titleProp() {
-			return _typeof(this.title) === 'boolean'
-				? _DEFALUT.titleWidth
-				: maybeAddPx(this.title || 'auto');
+			return _typeof(this.title) === 'boolean' ? _DEFALUT.titleWidth : maybeAddPx(this.title || 'auto');
 		}
 	},
 	methods: {

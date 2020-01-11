@@ -12,15 +12,7 @@ import Skeleton from 'pkg/skeleton/index';
 import { Breadcrumb, BreadcrumbItem } from 'pkg/breadcrumb/index';
 
 // 组件集合
-const components = [
-	Icon,
-	Affix,
-	Avatar,
-	Button,
-	Skeleton,
-	Breadcrumb,
-	BreadcrumbItem
-];
+const components = [Icon, Affix, Avatar, Button, Skeleton, Breadcrumb, BreadcrumbItem];
 
 const install = function(Vue) {
 	if (install.installed) return;

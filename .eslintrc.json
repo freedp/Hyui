@@ -6,12 +6,7 @@
 		"commonjs": true,
 		"node": true
 	},
-	"extends": [
-		"airbnb-base",
-		"plugin:jest/recommended",
-		"plugin:prettier/recommended"
-	],
-	"plugins": ["vue"],
+	"extends": ["airbnb-base", "plugin:vue/essential", "plugin:jest/recommended", "plugin:prettier/recommended"],
 	"globals": {
 		"arguments": "readonly",
 		"Atomics": "readonly",
