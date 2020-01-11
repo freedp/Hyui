@@ -1,0 +1,25 @@
+.breadcrumb-item__panel {
+	float: left;
+	.breadcrumb-item__inner {
+		float: left;
+		color: #606266;
+		&.is-link {
+			font-weight: 700;
+			text-decoration: none;
+			transition: color 0.2s cubic-bezier(0.645, 0.045, 0.355, 1);
+			color: #303133;
+			&:hover {
+				color: #01c2bd;
+			}
+		}
+	}
+	.breadcrumb-item__separator {
+		float: left;
+		margin: 0 9px;
+		font-weight: 700;
+		color: #c0c4cc;
+	}
+	&:last-child .breadcrumb-item__separator {
+		display: none;
+	}
+}

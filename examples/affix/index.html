@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8" />
+		<!-- import CSS -->
+		<link rel="stylesheet" href="../../lib/hyui.min.css" />
+		<style>
+			#app {
+				height: 300px;
+			}
+			.btn {
+				display: inline-block;
+				font-size: 14px;
+				font-weight: 500;
+				color: #fff;
+				-webkit-border-radius: 5px;
+				-moz-border-radius: 5px;
+				border-radius: 5px;
+				text-align: center;
+				height: 30px;
+				line-height: 30px;
+				padding-left: 33px;
+				padding-right: 23px;
+				vertical-align: top;
+				width: 106px;
+				height: 32px;
+				border: 0;
+				padding: 0;
+				text-align: center;
+				font-weight: 400;
+				background-color: #4395ff;
+				font-size: 14px;
+				text-decoration: none !important;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div id="app">
+			<affix>
+				<button class="btn">123123</button>
+			</affix>
+		</div>
+	</body>
+	<!-- import Vue before Element -->
+	<script src="../../vue.js"></script>
+	<!-- import JavaScript -->
+	<script src="../../lib/hyui.min.js"></script>
+	<script>
+		new Vue({
+			el: '#app',
+			data: function() {
+				return {
+					list: ['首页', '人员信息', '个人信息']
+				};
+			}
+		});
+	</script>
+</html>

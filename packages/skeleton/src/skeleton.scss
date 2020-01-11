@@ -1,0 +1,80 @@
+.hy-skeleton {
+	display: table;
+    width: 100%;
+    .hy-skeleton-header {
+        display: table-cell;
+        padding-right: 16px;
+        vertical-align: top;
+        .hy-skeleton-avatar {
+            display: inline-block;
+            vertical-align: top;
+            background: #f2f2f2;
+            width: 36px;
+            height: 36px;
+            line-height: 36px;
+            &.hy-skeleton-avatar--circle {
+                border-radius: 50%;
+            }
+            &.hy-skeleton-avatar--square {
+                border-radius: none;
+            }
+            &.hy-skeleton-avatar--large {
+                width: 45px;
+                height: 45px;
+                line-height: 45px;
+            }
+            &.hy-skeleton-avatar--small {
+                width: 36px;
+                height: 36px;
+                line-height: 36px;
+            }
+        }
+    }
+	.hy-skeleton-content {
+		display: table-cell;
+		vertical-align: top;
+		width: 100%;
+		.hy-skeleton-title {
+            margin-top: 16px;
+			height: 16px;
+			width: 100%;
+			background: #f2f2f2;
+		}
+		.hy-skeleton-graph {
+            margin: 0;
+            padding: 0;
+            margin-top: 24px;
+			list-style: none;
+			li {
+				height: 16px;
+				background: #f2f2f2;
+				list-style: none;
+				width: 100%;
+				margin-top: 16px;
+			}
+		}
+	}
+	&.hy-skeleton-active {
+        .hy-skeleton-avatar,
+        .hy-skeleton-title,
+		.hy-skeleton-graph > li {
+			background: linear-gradient(
+				90deg,
+				#f2f2f2 25%,
+				#e6e6e6 37%,
+				#f2f2f2 63%
+			);
+			-webkit-animation: skeleton-loading 1.4s ease infinite;
+			animation: skeleton-loading 1.4s ease infinite;
+			background-size: 400% 100%;
+		}
+	}
+}
+@keyframes skeleton-loading {
+	0% {
+		background-position: 100% 50%;
+	}
+	100% {
+		background-position: 0 50%;
+	}
+}
