@@ -4,7 +4,7 @@
  * 描述：button
  */
 import './button.scss';
-import { oneOf, _typeof, maybeAddPx } from '@/utils/utils';
+import { oneOf } from '@/utils/utils';
 
 const CLASS_PREFIX = 'hy-button';
 
@@ -20,7 +20,7 @@ export default {
 	name: 'hyButton',
 	props: {
 		loading: {
-			type: [Boolean, Object],
+			type: Boolean,
 			default: false
 		},
 		disabled: {

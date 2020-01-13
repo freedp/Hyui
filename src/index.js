@@ -3,7 +3,7 @@
  * 时间：2019-07-13
  * 描述：初始化
  */
-
+import Tag from 'pkg/tag/index';
 import Icon from 'pkg/icon/index';
 import Affix from 'pkg/affix/index';
 import Avatar from 'pkg/avatar/index';
@@ -12,7 +12,7 @@ import Skeleton from 'pkg/skeleton/index';
 import { Breadcrumb, BreadcrumbItem } from 'pkg/breadcrumb/index';
 
 // 组件集合
-const components = [Icon, Affix, Avatar, Button, Skeleton, Breadcrumb, BreadcrumbItem];
+const components = [Tag, Icon, Affix, Avatar, Button, Skeleton, Breadcrumb, BreadcrumbItem];
 
 const install = function(Vue) {
 	if (install.installed) return;

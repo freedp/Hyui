@@ -7,19 +7,13 @@
 		<style>
 			#app {
 				height: 300px;
+				font-size: 24px;
 			}
 		</style>
 	</head>
-
 	<body>
 		<div id="app">
-			<hy-skeleton
-				avatar
-				:loading="loading"
-				active
-				:graph="{rows: 3, width: ['100%', '500', '50%']}"
-			></hy-skeleton>
-			<!-- <div>123123</div> -->
+			<hy-tag closable>1111</hy-tag>
 		</div>
 	</body>
 	<!-- import Vue before Element -->
@@ -28,12 +22,7 @@
 	<script src="../../lib/hyui.min.js"></script>
 	<script>
 		new Vue({
-			el: '#app',
-			data: function() {
-				return {
-					loading: true
-				};
-			}
+			el: '#app'
 		});
 	</script>
 </html>

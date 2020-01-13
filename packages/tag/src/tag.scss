@@ -1,0 +1,71 @@
+@import 'src/style/animate';
+.hy-tag {
+	background-color: #ecf5ff;
+	display: inline-block;
+	height: 32px;
+	padding: 0 10px;
+	line-height: 30px;
+	font-size: 12px;
+	color: #409eff;
+	border: 1px solid #d9ecff;
+	border-radius: 4px;
+	box-sizing: border-box;
+	white-space: nowrap;
+	// box-sizing: border-box;
+	// margin: 0;
+	// padding: 0;
+	// font-size: 14px;
+	// font-variant: tabular-nums;
+	// list-style: none;
+	// font-feature-settings: "tnum";
+	// position: relative;
+	// display: inline-block;
+	// color: unset;
+	&.hy-tag- {
+		line-height: inherit;
+		vertical-align: baseline;
+	}
+	.hy-tag--dot {
+		box-sizing: border-box;
+		position: relative;
+		display: inline-block;
+		top: -1px;
+		width: 6px;
+		height: 6px;
+		vertical-align: middle;
+		border-radius: 50%;
+		background-color: currentColor;
+	}
+	&.hy-tag--default {
+		color: #1890ff;
+	}
+	&.hy-tag--processing::after {
+		box-sizing: border-box;
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		border: 1px solid currentColor;
+		border-radius: 50%;
+		animation: processing 1.2s ease-in-out infinite;
+		content: '';
+	}
+	&.hy-tag--info {
+		color: #d9d9d9;
+	}
+	&.hy-tag--success {
+		color: #52c41a;
+	}
+	&.hy-tag--warning {
+		color: #ec6f1c;
+	}
+	&.hy-tag--danger {
+		color: #f5222d;
+	}
+	.hy-tag--text {
+		margin-left: 8px;
+		color: rgba(0, 0, 0, 0.65);
+		font-size: 14px;
+	}
+}
