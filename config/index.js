@@ -3,5 +3,5 @@ module.exports = {
 	buildDir: './lib',
 	open: true,
 	host: 'localhost',
-	port: 9528
+	port: 9527
 };

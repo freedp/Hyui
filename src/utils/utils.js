@@ -4,7 +4,7 @@
  * 描述：工具库
  */
 
-import { _hasOwn, _assign, _slice, _toString } from './vars';
+import { _hasOwn, _assign, _slice, _toString, elementDisplayMap } from './vars';
 
 // 检测是否是element
 export const isElement = el => {
@@ -74,4 +74,44 @@ export const maybeAddPx = n => {
 // likeArray
 export const toArray = (likeArray, num = 0) => {
 	return _slice.apply(likeArray, num);
+};
+
+// 获得tag 是否是block,inline-block,inline
+export const defaultDisplay = tagName => {
+	let element, display;
+	if (!elementDisplayMap[tagName]) {
+		element = document.createElement(tagName);
+		document.body.appendChild(element);
+		display = document.defaultView.getComputedStyle(element, false).getPropertyValue('display');
+		element.parentNode.removeChild(element);
+		if (display === 'none') {
+			display = 'block';
+		}
+		elementDisplayMap[tagName] = display;
+	}
+	return elementDisplayMap[tagName];
+};
+
+// 获取元素display
+export const getDisplay = el => {
+	const display = document.defaultView.getComputedStyle(el, false).getPropertyValue('display');
+	return display;
+};
+
+// 获取元素的rect
+export const getTargetRect = el => {
+	return el !== window ? el.getBoundingClientRect() : { top: 0, bottom: window.innerHeight };
+};
+
+export const getSize = el => {
+	// const wh = ['width', 'height'];
+	// const cwh = ['clientWidth', 'clientHeight'];
+	// const plt = ['padding'];
+	// wh.forEach(item => {
+	// });
+	// const res = {
+	//     w: 0,
+	//     h: 0
+	// };
+	// return
 };

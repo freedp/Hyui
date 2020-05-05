@@ -6,10 +6,10 @@
 		<link rel="stylesheet" href="../../lib/hyui.min.css" />
 		<style>
 			#app {
-				height: 300px;
+				height: 1300px;
 			}
 			.btn {
-				display: inline-block;
+				display: block;
 				font-size: 14px;
 				font-weight: 500;
 				color: #fff;
@@ -32,13 +32,27 @@
 				font-size: 14px;
 				text-decoration: none !important;
 			}
+			.scrollP {
+				width: 300px;
+				height: 300px;
+				overflow: auto;
+			}
+			.scrollB {
+				width: 100%;
+				height: 500px;
+			}
 		</style>
 	</head>
 
 	<body>
 		<div id="app">
-			<affix>
-				<button class="btn">123123</button>
+			<!-- <div class="scrollP">
+                <div class="scrollB">1231</div>
+            </div> -->
+			<affix :offset-top="100">
+				<div>
+					<button class="btn">123123</button>
+				</div>
 			</affix>
 		</div>
 	</body>

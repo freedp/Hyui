@@ -7,6 +7,8 @@ const class2type = Object.freeze({});
 
 const array = [];
 
+export const elementDisplayMap = {};
+
 export const _toString = class2type.toString;
 
 export const _hasOwn = class2type.hasOwnProperty;
