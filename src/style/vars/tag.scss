@@ -1,0 +1,29 @@
+@import '../vars';
+
+$tag-default-color: $gray-dark !default;
+$tag-default-bg: $white !default;
+$tag-default-border-color: $border-color-base !default;
+
+$tag-primary-color: $white !default;
+$tag-primary-bg: $base-primary !default;
+$tag-primary-border-color: darken($tag-primary-bg, 10%) !default;
+
+$tag-success-color: $white !default;
+$tag-success-bg: $base-success !default;
+$tag-success-border-color: darken($tag-success-bg, 10%) !default;
+
+$tag-info-color: $white !default;
+$tag-info-bg: $base-info !default;
+$tag-info-border-color: darken($tag-info-bg, 10%) !default;
+
+$tag-text-color: $text-color !default;
+$tag-text-bg: $base-text !default;
+$tag-text-border-color: darken($base-text, 10%) !default;
+
+$tag-warning-color: $white !default;
+$tag-warning-bg: $base-warning !default;
+$tag-warning-border-color: darken($tag-warning-bg, 10%) !default;
+
+$tag-danger-color: $white !default;
+$tag-danger-bg: $base-danger !default;
+$tag-danger-border-color: darken($tag-danger-bg, 10%) !default;

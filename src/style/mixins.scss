@@ -1,0 +1,11 @@
+// flex
+@mixin flex($baseItems: center, $baseFlow: column nowrap, $baseJuestify: flex-start) {
+	display: flex;
+	align-items: $baseItems;
+	flex-flow: $baseFlow;
+	justify-content: $baseJuestify;
+}
+// border
+@mixin border($color, $width: 1px, $style: solid) {
+	border: $width $style $color;
+}

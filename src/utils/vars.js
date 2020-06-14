@@ -1,8 +1,10 @@
+/* @flow */
 /**
  * 作者：Hyhello
  * 时间：2019-06-23
  * 描述：常量
  */
+
 const class2type = Object.freeze({});
 
 const array = [];

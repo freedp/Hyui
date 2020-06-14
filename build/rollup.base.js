@@ -35,11 +35,17 @@ const baseConfig = {
 			name: name,
 			file: pkg.main,
 			sourcemap: true,
-			banner: banner
+			banner: banner,
+			globals: {
+				vue: 'Vue'
+			}
 		}
 	],
+	external: ['vue'],
 	plugins: [
-		resolve(),
+		resolve({
+			extensions: aliass.resolve
+		}),
 		commonjs(),
 		alias(Object.assign({}, aliass)),
 		eslint({
@@ -51,7 +57,7 @@ const baseConfig = {
 		}),
 		postcss({
 			plugins: [autoprefixer, cssnano],
-            sourceMap: true,
+			sourceMap: true,
 			extensions: ['.sass', '.scss', '.css'],
 			extract: `${config.buildDir}/hyui.min.css` // 输出路径
 		}),
@@ -62,8 +68,8 @@ const baseConfig = {
 			exclude: ['node_modules/**']
 		}),
 		replace({
-            __VERSION__: version,
-            __NAME__: pkg.name,
+			__VERSION__: version,
+			__NAME__: pkg.name,
 			'process.env.NODE_ENV': JSON.stringify(env)
 		})
 	]

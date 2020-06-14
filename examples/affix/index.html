@@ -46,14 +46,14 @@
 
 	<body>
 		<div id="app">
-			<!-- <div class="scrollP">
-                <div class="scrollB">1231</div>
-            </div> -->
-			<affix :offset-top="100">
-				<div>
-					<button class="btn">123123</button>
+			<div class="scrollP">
+				<div class="scrollB">
+					<div style="height: 200px;"></div>
+					<affix target=".scrollP" :offset-top="100" @change="change">
+						<button class="btn">123123</button>
+					</affix>
 				</div>
-			</affix>
+			</div>
 		</div>
 	</body>
 	<!-- import Vue before Element -->
@@ -67,6 +67,14 @@
 				return {
 					list: ['首页', '人员信息', '个人信息']
 				};
+			},
+			methods: {
+				change(status, top) {
+					console.log(status);
+					if (status) {
+						console.log(top);
+					}
+				}
 			}
 		});
 	</script>

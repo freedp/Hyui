@@ -1,0 +1,30 @@
+@import '../vars';
+
+// ===buttons
+$btn-default-color: $gray-dark !default;
+$btn-default-bg: $white !default;
+$btn-default-active-color: $border-color-base !default;
+
+$btn-primary-color: $white !default;
+$btn-primary-bg: $base-primary !default;
+$btn-primary-active-color: darken($btn-primary-bg, 10%) !default;
+
+$btn-success-color: $white !default;
+$btn-success-bg: $base-success !default;
+$btn-success-active-color: darken($btn-success-bg, 10%) !default;
+
+$btn-info-color: $white !default;
+$btn-info-bg: $base-info !default;
+$btn-info-active-color: darken($btn-info-bg, 10%) !default;
+
+$btn-text-color: $text-color !default;
+$btn-text-bg: $base-text !default;
+$btn-text-active-color: darken($base-text, 10%) !default;
+
+$btn-warning-color: $white !default;
+$btn-warning-bg: $base-warning !default;
+$btn-warning-active-color: darken($btn-warning-bg, 10%) !default;
+
+$btn-danger-color: $white !default;
+$btn-danger-bg: $base-danger !default;
+$btn-danger-active-color: darken($btn-danger-bg, 10%) !default;

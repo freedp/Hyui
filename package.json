@@ -17,7 +17,8 @@
 		"lint-staged": "pretty-quick --staged",
 		"test": "jest --coverage",
 		"deploy": "yarn publish",
-		"serve": "npm run dev"
+		"serve": "npm run dev",
+		"prebuild": "npm run lint:fix"
 	},
 	"keywords": [
 		"hy-ui",
@@ -55,10 +56,11 @@
 		"@babel/register": "^7.4.4",
 		"@commitlint/cli": "^8.0.0",
 		"@commitlint/config-conventional": "^8.0.0",
+		"@vue/babel-helper-vue-jsx-merge-props": "^1.0.0",
+		"@vue/babel-preset-jsx": "^1.1.2",
 		"autoprefixer": "^9.7.1",
 		"babel-eslint": "^10.0.3",
 		"babel-jest": "^24.8.0",
-		"babel-plugin-transform-es2015-modules-commonjs": "^6.26.2",
 		"chalk": "^2.4.2",
 		"cross-env": "^5.2.0",
 		"cssnano": "^4.1.10",
@@ -71,7 +73,6 @@
 		"eslint-plugin-jest": "^22.7.1",
 		"eslint-plugin-prettier": "^3.1.0",
 		"eslint-plugin-vue": "^5.2.3",
-		"flow-bin": "^0.102.0",
 		"husky": "^2.4.1",
 		"jest": "^24.8.0",
 		"lint-staged": "^8.2.1",
@@ -85,7 +86,6 @@
 		"rollup-plugin-commonjs": "^10.0.0",
 		"rollup-plugin-eslint": "^6.0.0",
 		"rollup-plugin-filesize": "^6.0.0",
-		"rollup-plugin-flow-no-whitespace": "^1.0.0",
 		"rollup-plugin-json": "^4.0.0",
 		"rollup-plugin-livereload": "^1.0.1",
 		"rollup-plugin-node-resolve": "^5.0.3",
@@ -96,16 +96,15 @@
 		"rollup-plugin-vue": "^4.7.2",
 		"rollup-watch": "^4.3.1",
 		"vue-eslint-parser": "^6.0.4",
-		"vue-template-compiler": "^2.6.10"
+		"vue-template-compiler": "^2.6.11"
 	},
 	"peerDependencies": {
-		"echarts": "^4.4.0",
-		"lodash": "^4.17.15",
-		"resize-observer-polyfill": "^1.5.1"
+		"resize-observer-polyfill": "^1.5.1",
+		"vue": "^2.6.11"
 	},
 	"dependencies": {
-		"echarts": "^4.4.0",
-		"lodash": "^4.17.15",
-		"resize-observer-polyfill": "^1.5.1"
+		"fecha": "^4.2.0",
+		"resize-observer-polyfill": "^1.5.1",
+		"vue": "^2.6.11"
 	}
 }

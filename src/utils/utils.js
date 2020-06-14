@@ -17,9 +17,9 @@ export const oneOf = (target, list) => {
 };
 
 // 继承
-export const extend = (target, resource) => {
+export const _extend = (target, resource) => {
 	try {
-		return _assign.apply(Object, arguments);
+		return _assign.apply(Object, [target, resource]);
 	} catch (error) {
 		for (const i in resource) {
 			if (_hasOwn.call(resource, i)) {
@@ -65,6 +65,24 @@ export const isArray =
 		return n instanceof Array;
 	};
 
+// 是否是window
+export const isWindow = target => {
+	return target != null && target === target.window;
+};
+
+export const isObject = target => {
+	return target !== null && typeof target === 'object';
+};
+
+export const isFunction = target => {
+	return typeof target === 'function' && target instanceof Function;
+};
+
+export const isPromise = target => {
+	// 初始promise 或 promise.then返回的，故target有可能是function
+	return target && (isObject(target) || isFunction(target)) && typeof isFunction(target.then);
+};
+
 // 是否添加px
 export const maybeAddPx = n => {
 	// eslint-disable-next-line no-restricted-globals
@@ -101,17 +119,4 @@ export const getDisplay = el => {
 // 获取元素的rect
 export const getTargetRect = el => {
 	return el !== window ? el.getBoundingClientRect() : { top: 0, bottom: window.innerHeight };
-};
-
-export const getSize = el => {
-	// const wh = ['width', 'height'];
-	// const cwh = ['clientWidth', 'clientHeight'];
-	// const plt = ['padding'];
-	// wh.forEach(item => {
-	// });
-	// const res = {
-	//     w: 0,
-	//     h: 0
-	// };
-	// return
 };

@@ -1,0 +1,52 @@
+@import 'src/style/animate';
+$default_color: #29d !default;
+
+.hy-loadingbar {
+	position: fixed;
+	z-index: 10002;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 2px;
+	pointer-events: none;
+	color: $default_color;
+	.hy-loadingbar-main {
+		width: 100%;
+		height: 100%;
+		pointer-events: none;
+		transition: all 0.35s linear;
+		.hy-loadingbar-main__inner {
+			width: 50%;
+			height: 100%;
+			position: relative;
+			transition: width 0.35s;
+			background: currentColor;
+			border-bottom-right-radius: 1px;
+			border-top-right-radius: 1px;
+		}
+		.hy-loadingbar-main__peg {
+			position: absolute;
+			width: 70px;
+			right: 0;
+			top: 0;
+			height: 2px;
+			opacity: 0.45;
+			box-shadow: currentColor 1px 0 6px 1px;
+			border-radius: 100%;
+		}
+	}
+	.hy-loadingbar-spinner {
+		display: block;
+		position: absolute;
+		z-index: 2;
+		top: 10px;
+		left: 10px;
+		width: 14px;
+		height: 14px;
+		border: solid 2px transparent;
+		border-top-color: currentColor;
+		border-left-color: currentColor;
+		border-radius: 50%;
+		animation: hy-switch-loading 0.4s linear infinite;
+	}
+}

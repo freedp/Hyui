@@ -1,0 +1,212 @@
+@import 'src/style/animate';
+
+$hy-swidth-default-color: #2d8cf0 !default;
+
+.hy-switch {
+	z-index: 0;
+	line-height: 1;
+	user-select: none;
+	position: relative;
+	display: inline-block;
+	vertical-align: middle;
+	transition: all 0.2s ease-in-out;
+	.hy-switch__text,
+	.hy-switch__inner {
+		display: inline-block;
+		vertical-align: middle;
+	}
+	.hy-switch__inner {
+		height: 22px;
+		line-height: 20px;
+		border-radius: 22px;
+		vertical-align: middle;
+		border: 1px solid currentColor;
+		background-color: currentColor;
+		position: relative;
+		z-index: 0;
+		cursor: pointer;
+		color: $hy-swidth-default-color;
+		user-select: none;
+		transition: all 0.2s ease-in-out;
+		&::after {
+			content: '';
+			width: 18px;
+			height: 18px;
+			border-radius: 18px;
+			background-color: #fff;
+			position: absolute;
+			left: 1px;
+			top: 1px;
+			z-index: 2;
+			cursor: pointer;
+			transition: left 0.2s ease-in-out, width 0.2s ease-in-out;
+		}
+		&::before {
+			content: '';
+			width: 14px;
+			height: 14px;
+			display: none;
+			border-radius: 50%;
+			background-color: transparent;
+			position: absolute;
+			left: 3px;
+			top: 3px;
+			z-index: 3;
+			border: 1px solid currentColor;
+			border-color: transparent transparent transparent currentColor;
+			animation: hy-switch-loading 1s linear;
+			animation-iteration-count: infinite;
+		}
+	}
+	&.is-loading .hy-switch__inner::before {
+		display: block;
+	}
+	&.is-loading,
+	&.is-disabled {
+		opacity: 0.4;
+	}
+	&.is-disabled,
+	&.is-disabled > .hy-switch__inner {
+		cursor: not-allowed;
+	}
+	&[aria-position='outside'] {
+		.hy-switch__text {
+			cursor: pointer;
+			font-size: 14px;
+			line-height: 1;
+			vertical-align: middle;
+			&.is-left {
+				color: $hy-swidth-default-color;
+				margin-right: 10px;
+			}
+			&.is-right {
+				color: #303133;
+				margin-left: 10px;
+			}
+		}
+		&.is-checked .hy-switch__text {
+			&.is-left {
+				color: #303133;
+			}
+			&.is-right {
+				color: $hy-swidth-default-color;
+			}
+		}
+	}
+	&[aria-position='inside'] {
+		.hy-switch__text {
+			position: absolute;
+			color: #fff;
+			top: 50%;
+			z-index: 1;
+			font-size: 12px;
+			cursor: pointer;
+			white-space: nowrap;
+			transform: translateY(-50%);
+			&.is-left {
+				right: 8px;
+			}
+			&.is-right {
+				left: 8px;
+			}
+		}
+	}
+	&.hy-switch--large {
+		.hy-switch__inner {
+			width: 56px;
+		}
+		&.is-checked {
+			.hy-switch__inner {
+				&::after {
+					left: 35px;
+				}
+				&::before {
+					left: 37px;
+				}
+			}
+			&:active .hy-switch__inner::after {
+				left: 23px;
+			}
+		}
+		&:active .hy-switch__inner::after {
+			width: 30px;
+		}
+	}
+	&.hy-switch--medium {
+		.hy-switch__inner {
+			width: 44px;
+		}
+		&.is-checked {
+			.hy-switch__inner {
+				&::after {
+					left: 23px;
+				}
+				&::before {
+					left: 25px;
+				}
+			}
+			&:active .hy-switch__inner::after {
+				left: 15px;
+			}
+		}
+		&:active .hy-switch__inner::after {
+			width: 26px;
+		}
+	}
+	&.hy-switch--small {
+		&[aria-position='outside'] {
+			.hy-switch__text {
+				font-size: 12px;
+				&.is-left {
+					margin-right: 5px;
+				}
+				&.is-right {
+					margin-left: 5px;
+				}
+			}
+		}
+		&[aria-position='inside'] {
+			.hy-switch__text {
+				&.is-left {
+					right: 5px;
+				}
+				&.is-right {
+					left: 5px;
+				}
+			}
+		}
+		.hy-switch__inner {
+			width: 28px;
+			height: 16px;
+			line-height: 14px;
+			border-radius: 16px;
+			&::after {
+				width: 12px;
+				height: 12px;
+			}
+			&::before {
+				width: 10px;
+				height: 10px;
+				left: 2px;
+				top: 2px;
+			}
+		}
+		&.is-checked {
+			.hy-switch__inner {
+				&::after {
+					left: 13px;
+				}
+				&::before {
+					left: 14px;
+				}
+			}
+			&:active .hy-switch__inner::after {
+				left: 11px;
+			}
+		}
+
+		&:active .hy-switch__inner::after {
+			width: 14px;
+		}
+	}
+}

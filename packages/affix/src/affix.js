@@ -4,9 +4,14 @@
  * 描述：affix
  */
 import { warn } from '@/utils/debug';
-import { getDisplay, isElement, getTargetRect } from '@/utils/utils';
+import { getDisplay, isElement, getTargetRect, isWindow } from '@/utils/utils';
 
 const wHeight = window.innerHeight;
+
+const getOffset = (el, target) => {
+	const bool = isWindow(target);
+	return getTargetRect(el).top - (bool ? 0 : getTargetRect(target).top);
+};
 
 export default {
 	name: 'Affix',
@@ -26,7 +31,6 @@ export default {
 	},
 	data() {
 		return {
-			offset: 0,
 			isActive: false,
 			fixStyle: {},
 			styles: {}
@@ -51,16 +55,16 @@ export default {
 			}
 			if (isActive) {
 				vNodeList = [
+					h('div', {
+						style: styles
+					}),
 					h(
 						'div',
 						{
 							style: fixStyle
 						},
 						vNodeList
-					),
-					h('div', {
-						style: styles
-					})
+					)
 				];
 			}
 			return h(
@@ -99,28 +103,24 @@ export default {
 				this.fixStyle = {
 					...this.styles,
 					position: 'fixed',
-					top: `${this.offset}px`,
 					left: `${rect.left}px`
 				};
-				this.elm = this.target ? document.querySelector(this.target) : window;
+				// 目前只支持window
+				this.elm = window || this.target ? document.querySelector(this.target) : window;
 				this.elm.addEventListener('scroll', this.updatePos, false);
 			});
 		},
-		updatePos(ev) {
-			console.log(ev);
-			const { offsetTop, offsetBottom } = this;
-			const vNode = this.$slots.default[0].elm;
-			const rect = getTargetRect(vNode);
-			if (offsetTop) {
-				this.isActive = rect.top >= offsetTop;
-				console.log(rect.top, offsetTop);
-				this.offset = offsetTop;
-			} else if (offsetBottom) {
-				this.isActive = rect.top >= wHeight - offsetBottom;
-				this.offset = wHeight - offsetBottom;
-			} else {
-				this.isActive = false;
+		updatePos() {
+			const { $el, elm, offsetTop, offsetBottom, offsetType } = this;
+			const offset = getOffset($el, elm);
+			if (offsetType === 'top') {
+				this.isActive = offset <= offsetTop;
+				this.fixStyle.top = this.isActive ? `${offsetTop}px` : 0;
+			} else if (offsetType === 'bottom') {
+				this.isActive = offset <= wHeight - offsetBottom;
+				this.fixStyle.top = this.isActive ? `${wHeight - offsetBottom}px` : 0;
 			}
+			this.$emit('change', this.isActive, offset);
 		}
 	},
 	beforeDestroy() {

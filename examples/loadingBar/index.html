@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8" />
+		<!-- import CSS -->
+		<link rel="stylesheet" href="../../lib/hyui.min.css" />
+		<style>
+			#app {
+				height: 300px;
+			}
+		</style>
+		<!-- import Vue before Element -->
+		<script src="../../vue.js"></script>
+		<!-- import JavaScript -->
+		<script src="../../lib/hyui.min.js"></script>
+	</head>
+
+	<body>
+		<div id="app">
+			<hy-button type="primary" @click="change('start')">
+				start
+			</hy-button>
+			<hy-button type="primary" @click="change('complete')">
+				complete
+			</hy-button>
+			<hy-button type="primary" @click="change('error')">
+				error
+			</hy-button>
+			<hy-button type="primary" @click="update(0.1)">
+				10%
+			</hy-button>
+			<hy-button type="primary" @click="update(0.5)">
+				50%
+			</hy-button>
+		</div>
+	</body>
+	<script>
+		console.log(HyUi);
+		new Vue({
+			el: '#app',
+			data: function() {
+				return {
+					currentValue: '是'
+				};
+			},
+			mounted() {
+				console.log(this);
+			},
+			methods: {
+				change(val) {
+					this.$loadingBar[val]();
+				},
+				update(n) {
+					this.$loadingBar.update(n);
+				}
+			}
+		});
+	</script>
+</html>

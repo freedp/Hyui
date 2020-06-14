@@ -6,7 +6,7 @@
 const { convertSep, pathResolve } = require('./utils');
 
 module.exports = {
-	resolve: ['.vue', '.js', '.jsx', '.json'],
+	resolve: ['.vue', '.js', '.jsx', '.json', '.scss'],
 	'@': convertSep(pathResolve('./src'), '/'),
 	pkg: convertSep(pathResolve('./packages'), '/')
 };

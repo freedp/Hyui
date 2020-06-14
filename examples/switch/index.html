@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8" />
+		<!-- import CSS -->
+		<link rel="stylesheet" href="../../lib/hyui.min.css" />
+		<style>
+			#app {
+				height: 300px;
+			}
+		</style>
+		<!-- import Vue before Element -->
+		<script src="../../vue.js"></script>
+		<!-- import JavaScript -->
+		<script src="../../lib/hyui.min.js"></script>
+	</head>
+
+	<body>
+		<div id="app">
+			<hy-switch
+				v-model="currentValue"
+				position="inside"
+				active-value="是"
+				inactive-value="否"
+				active-text="是"
+				inactive-text="否"
+			>
+				<span slot="active">你好</span>
+				<span slot="inactive">争对</span>
+			</hy-switch>
+			<hy-switch
+				v-model="currentValue"
+				active-value="是"
+				inactive-value="否"
+				active-text="是"
+				inactive-text="否"
+				size="medium"
+				@change="change"
+			>
+			</hy-switch>
+			<hy-switch
+				v-model="currentValue"
+				position="inside"
+				active-value="是"
+				inactive-value="否"
+				active-text="√"
+				inactive-text="×"
+				size="small"
+				active-color="red"
+			>
+			</hy-switch>
+		</div>
+	</body>
+	<script>
+		new Vue({
+			el: '#app',
+			data: function() {
+				return {
+					currentValue: '是'
+				};
+			},
+			methods: {
+				change(val) {
+					console.log(val);
+				},
+				beforeChange() {
+					return new Promise((resolve, reject) => {
+						setTimeout(() => {
+							var r = confirm('按下按钮!');
+							if (r == true) {
+								resolve();
+							} else {
+								reject();
+							}
+						}, 3000);
+					});
+				}
+			}
+		});
+	</script>
+</html>

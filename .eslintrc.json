@@ -8,6 +8,7 @@
 	},
 	"extends": ["airbnb-base", "plugin:vue/essential", "plugin:jest/recommended", "plugin:prettier/recommended"],
 	"globals": {
+        "T": "readonly",
 		"arguments": "readonly",
 		"Atomics": "readonly",
 		"SharedArrayBuffer": "readonly"
@@ -16,7 +17,10 @@
 	"parserOptions": {
 		"ecmaVersion": 6,
 		"sourceType": "module",
-		"parser": "babel-eslint"
+		"parser": "babel-eslint",
+		"ecmaFeatures": {
+			"jsx": true
+		}
 	},
 	"rules": {
 		"prettier/prettier": "error",
@@ -46,7 +50,10 @@
 	"settings": {
 		"import/resolver": {
 			"alias": {
-				"map": [["@", "./src"], ["pkg", "./packages"]],
+				"map": [
+					["@", "./src"],
+					["pkg", "./packages"]
+				],
 				"extensions": [".ts", ".js", ".jsx", ".json", ".vue"]
 			}
 		}

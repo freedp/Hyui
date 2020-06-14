@@ -13,11 +13,9 @@
 
 	<body>
 		<div id="app">
-			<hy-breadcrumb>
+			<hy-breadcrumb separator=">">
 				<div>
-					<hy-breadcrumb-item
-						v-for="(item, index) in list"
-						:key="index"
+					<hy-breadcrumb-item :to="{}" v-for="(item, index) in list" :key="index"
 						>{{ item }}</hy-breadcrumb-item
 					>
 				</div>
@@ -33,7 +31,7 @@
 			el: '#app',
 			data: function() {
 				return {
-					list: ['首页', '人员信息', '个人信息']
+					list: ['首页', '人员信息', '个人信息', 'bbb', 'dddd']
 				};
 			}
 		});

@@ -1,0 +1,45 @@
+@import 'src/style/mixins';
+.hy-calendar {
+	background-color: #fff;
+	.hy-calendar__header {
+		@include flex(center, row nowrap, space-between);
+		padding: 12px 20px;
+		border-bottom: 1px solid #ebeef5;
+	}
+	.hy-calendar__body {
+		padding: 12px 20px 35px;
+		.hy-calendar-table {
+			table-layout: fixed;
+			width: 100%;
+			thead th {
+				padding: 12px 0;
+				color: #606266;
+				font-weight: normal;
+			}
+			tr td:first-child {
+				border-left: 1px solid #ebeef5;
+			}
+			tr:first-child td {
+				border-top: 1px solid #ebeef5;
+			}
+			&:not(.is-range) td.prev,
+			&:not(.is-range) td.next {
+				color: #c0c4cc;
+			}
+			&:not(.is-range) td.next,
+			&:not(.is-range) td.prev {
+				color: #c0c4cc;
+			}
+			td {
+				border-bottom: 1px solid #ebeef5;
+				border-right: 1px solid #ebeef5;
+				vertical-align: top;
+				transition: background-color 0.2s ease;
+			}
+			.hy-calendar-day {
+				padding: 8px;
+				height: 90px;
+			}
+		}
+	}
+}
